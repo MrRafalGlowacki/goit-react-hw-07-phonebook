@@ -1,15 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactAction, inputHandlerAction } from 'redux/contactsSlice';
-import { getContacts, getName, getNumber } from 'redux/selectors';
+import { inputHandlerAction } from 'redux/contactsSlice';
+import { addContactAction } from 'redux/operations';
+import { selectContacts, selectName, selectNumber } from 'redux/selectors';
 import css from './AddForm.module.css';
 import { AddName } from './AddName/AddName';
 import { AddPhone } from './AddPhone/AddPhone';
 
 export const AddForm = () => {
-  const name = useSelector(getName);
-  const number = useSelector(getNumber);
-  const contactsList = useSelector(getContacts);
+  const name = useSelector(selectName);
+  const number = useSelector(selectNumber);
+  const contactsList = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = event => {

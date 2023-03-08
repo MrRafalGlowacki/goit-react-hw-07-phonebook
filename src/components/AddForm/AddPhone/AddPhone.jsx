@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inputHandlerAction } from 'redux/contactsSlice';
-import { getNumber } from 'redux/selectors';
+import { selectNumber } from 'redux/selectors';
 import css from './AddPhone.module.css';
 
 export const AddPhone = () => {
   const dispatch = useDispatch();
-  const number = useSelector(getNumber);
+  const number = useSelector(selectNumber);
 
   const handleChange = event => {
     const payload = { name: event.target.name, value: event.target.value };
